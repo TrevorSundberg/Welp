@@ -1,0 +1,98 @@
+DONE - Grammar code editor on the left top
+DONE - Highlight affected parts of the grammar
+DONE - Highlight the newly added edges and nodes since the last slide - just select it :)
+DONE - Every sub-sequent algorithm has a slider
+DONE - We slide it to see the progress and it highlights the original grammar
+DONE - May want to see two or more algorithms side by side (dockable)
+DONE - For each algorithm we provide psuedocode that will also be highlighted
+DONE - The slider should maybe have an extra +1 (we don't use the value, we just use it to lock the slider at the end)
+DONE - Should somehow blink it when we re-run the same chunk of code
+DONE - Dynamic updating of vis graph to add nodes and keep old ones
+DONE - When adding nodes, we can make an option whether we want it to dynamically add the nodes or re-create the entire thing deterministically
+DONE - Run the entire algorithm to determine the number of steps
+DONE - The slider must then change its max value
+DONE - Also fill out the graph and any data we want to return
+DONE - Don't allow open in new window (it basically will never work unless we can communicate between windows)
+DONE - Psuedocode should support hovering over variables and expressions to see a string representation of the data
+DONE - Psuedocode tooltip can be an html chunk (such as a div or a table)
+DONE - Figure out structure for multiple algorithms and create helpers to build it all easily (refactor / cleanup)
+DONE - Each algorithm updates its view
+
+Tool-tips over nodes to give more explanation
+
+Not going to do the advanced grammar now, just do basic productions with or / and (the reason is that we just want to use our LR parser to do the grammar)
+
+
+Rules = (Rule ';')+;
+Rule = Identifier Equals Expression0;
+Expression0 = Expression1 (Or Expression1)*;
+Expression1 = Expression2 Expression2*;
+Expression2 = Expression3 [*+?]*;
+Expression3 = Identifier | String | Any | Range | '(' Expression0 ')';
+Identifier = [a-zA-Z_][a-zA-Z0-9]*;
+Equals = '=';
+String = '"' ([^\\"] | '\\' .*)* '"' | "'" ([^\\'] | '\\' .*)* "'";
+Any = '.';
+Range = '[' ([^\\\]] | '\\' .*)* ']';
+
+
+
+We can do an 'or' inlined (without generating a rule) if the lengths of all or components will be the same
+
+Run a pass using visibility only update down to visible 
+
+Input text on the left bottom (dependencies would be nice)
+
+Only one algorithm can highlight at a time
+
+Changing a slider for a further algorithm moves all previous sliders to the end and all after sliders to the beginning
+
+Each algorithm highlights parts from the previous, going all the way back to the grammar
+
+Slick grid for all tables - Follow, First, Predict
+
+Allow for expressions such as FIRST(A), need to be careful about possibly wanting to show nested 'A' however...
+
+F to focus on the entire graph or selected node/edge (centers it and frames it)
+
+Show / hide for psuedocode and graph?
+
+Menus to hide and show windows
+
+Config / window position and state saving
+
+Whether a view should appear by default (if no config exists)
+
+Global option for parser type: LR0, SLR1, LR1, LALR1, Regex
+
+Compute space needed for psuedo code and fix it's size
+
+Help pages that explain each (separate browser window or popup, you decide!)
+
+Algorithm should return the nodes that it wants hightlighted or selected (changed is nice when slider is at the end...)
+
+Hotkey for showing graph options and text editor options (if available, basically power user mode)
+
+Maybe move all the stuff into a single global with a name (no random globals)
+
+Partial computing and dependency graph for algorithms + invisbile algorithms (also whether certain algorithms are enabled given specific modes)
+
+Build Extended Grammar Tree (EBNF Tree) [ebnf_tree]
+Extended Grammar to Basic Grammar (EBNF to BNF) [ebnf_to_bnf]
+Computing First, Follow, Predict, etc (Grammar Sets) [grammar_sets]  - Also compute left/right factoring here, infinite recursion, ambiguity
+Basic Grammar to Nondeterministic Finite Automata (BNF to NFA)
+Nondeterministic Finite Automata to Deterministic Finite Automata (NFA to DFA)
+Extended Grammar to Recursive Descent (Recursive Descent)
+Regular Expression Lexer (Regex Lexer) - Only for Regex
+Shift Reduce Parser (Shift Reduce Parser) - Only for non-Regex, and everything after this...
+Parse Tree (Parse Tree)
+Abstract Syntax Tree (AST)
+Semantic Analysis / Type Checking (Semantic Analysis)
+Static Single Assignment Generation (SSA)
+Dominance Frontiers (Dominance Frontiers)
+Convert Memory To Regisers (Mem2reg)
+Machine Independent Optimizations (Optimizer)
+Register Allocation (Register Allocation) - hash duplicates, fold constants, loop invariance, etc
+Execution (Execution) - Include instruction limit for performance reasons
+Mark and Sweep Garbage Collection (Mark and Sweep)
+

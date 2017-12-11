@@ -1,0 +1,95 @@
+h1,h2
+{
+  font: 14px Arial, sans-serif;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+h2
+{
+  margin: 5px;
+  padding: 0px;
+}
+
+.algorithmBox
+{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.algorithmSlider
+{
+  margin: 12px;
+  margin-top: 0px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 10px;
+}
+
+.algorithmPartFlex
+{
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 100px;
+  display: flex;
+}
+
+.algorithmPartFixed
+{
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 100px;
+  display: flex;
+}
+
+@keyframes highlightAnimation
+{
+  from
+  {
+    background: rgba(255, 128, 128, 0.8);
+  }
+  to
+  {
+    background: rgba(255, 0, 0, 0.2);
+  }
+}
+
+.highlight
+{
+  background: rgba(255, 0, 0, 0.2);
+  position: absolute;
+}
+
+.highlightAnimation
+{
+  animation-name: highlightAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-play-state: running;
+}
+
+.codeTooltip
+{
+  position: absolute;
+  display: inline-block;
+  z-index: 1000;
+  user-select: none;
+  pointer-events: none;
+  cursor: pointer;
+  font-size: 0.7em;
+  padding: 3px;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.3);
+  top: 0px;
+  left: 0px;
+  font-size: 12px;
+  font-family: Monaco, monospace;
+  color: #fff;
+  background: #222;
+  border: 1px solid #33bbff;
+  visibility: hidden;
+  margin: 5px;
+}
